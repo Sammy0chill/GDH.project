@@ -1,9 +1,12 @@
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Сайт з іконкою на верхній панелі</title>
+    <title>GDH</title>
+   
+   
 </head>
 <body>
     <div class="navbar">
@@ -14,14 +17,68 @@
             <a href="#contact">Контакти</a>
         </div>
         <div class="icon">
-            <a href="#profile">
+            <a class="open-modal" href="#profile">
                 <img src="./images/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" alt="Icon"> <!-- Замініть на шлях до вашої іконки -->
             </a>
         </div>
     </div>
     <div class="container">
-        <h1>Вітаємо на нашому сайті!</h1>
-        <p>Це адаптивний сайт з верхньою панеллю, який відцентровує вміст та коректно відображається на ПК і мобільних пристроях.</p>
+        <!-- Ваш основний контент тут -->
     </div>
+
+    <!-- Модальне вікно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="registration-form">
+                <h2>Реєстрація</h2>
+                <form action="submit_registration.php" method="post">
+                    <div class="form-group">
+                        <label for="username">Ім'я користувача:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Електронна пошта:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Підтвердити пароль:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <button type="submit">Зареєструватися</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипт для роботи модального вікна -->
+    <script>
+        // Отримуємо елементи
+        var modal = document.getElementById("myModal");
+        var btn = document.querySelector(".open-modal");
+        var span = document.querySelector(".close");
+
+        // Коли користувач натискає на посилання, відкриваємо модальне вікно
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Коли користувач натискає на <span> (x), закриваємо модальне вікно
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Коли користувач натискає в будь-якому місці за межами модального вікна, закриваємо його
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
+
